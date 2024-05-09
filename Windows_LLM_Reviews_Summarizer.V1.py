@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[35]:
-
-
 import streamlit as st
 from azure.core.credentials import AzureKeyCredential
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -36,8 +30,8 @@ import pandasql as ps
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 #Initializing API Keys to use LLM
-AZURE_OPENAI_API_KEY = os.environ.get("AZURE_OPENAI_API_KEY")
-AZURE_OPENAI_ENDPOINT = os.environ.get("AZURE_OPENAI_ENDPOINT")
+os.environ["AZURE_OPENAI_API_KEY"] = "b71d4af1ea184bfb9444b448f4f5412a"
+os.environ["AZURE_OPENAI_ENDPOINT"] = "https://fordmustang.openai.azure.com/"
 
 
 #Reading the dataset
@@ -445,7 +439,8 @@ def main():
                 st.session_state['chat_history'] = []
             
             output = device_llm_review_generator(user_input,st.session_state['chat_history'])
-            st.session_state['chat_history'].append((user_input, output))
+#             st.session_state['chat_history'].append((user_input, output))
+            st.session_state['chat_history'] = []
         
             # Display output based on type (string or dataframe)
             if isinstance(output, pd.DataFrame):
@@ -455,14 +450,14 @@ def main():
                 st.write(output)
 
         # Chat history section with some formatting
-        st.header("Chat History")
-        for user_text, output_text in st.session_state['chat_history']:
-            st.markdown(f"- You: {user_text}")
-            if isinstance(output_text, pd.DataFrame):
-                st.dataframe(output_text)  # Convert dataframe to string for display
-            else:
-                st.markdown(f"- Bot: {output_text}")
-            st.write("---")
+#         st.header("Chat History")
+#         for user_text, output_text in st.session_state['chat_history']:
+#             st.markdown(f"- You: {user_text}")
+#             if isinstance(output_text, pd.DataFrame):
+#                 st.dataframe(output_text)  # Convert dataframe to string for display
+#             else:
+#                 st.markdown(f"- Bot: {output_text}")
+#             st.write("---")
     except Exception as e:
         err = f"An error occurred while calling the final function: {e}"
         print(err)
@@ -471,10 +466,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# In[ ]:
-
-
-
-
