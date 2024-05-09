@@ -33,7 +33,6 @@ import time
 from PIL import Image
 import base64
 import pandasql as ps
-from IPython.display import clear_output
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 #Initializing API Keys to use LLM
