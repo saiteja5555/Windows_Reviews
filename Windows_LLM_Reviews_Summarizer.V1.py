@@ -23,7 +23,6 @@ import pyodbc
 import urllib
 from sqlalchemy import create_engine
 import pandas as pd
-import keyring
 from azure.identity import InteractiveBrowserCredential
 from pandasai import SmartDataframe
 import pandas as pd
