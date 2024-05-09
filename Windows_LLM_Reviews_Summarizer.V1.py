@@ -416,18 +416,26 @@ def main():
 
         # Create a container for logos and title with horizontal layout
         col1, col2, col3 = st.columns([1, 2, 1])
-      
+
         # Display logo on the left
         with col1:
+            st.markdown("<div style='text-align: center'>", unsafe_allow_html=True)
             st.image("microsoft_logo.png", width=50)  # Adjust width as needed
+            st.markdown("</div>", unsafe_allow_html=True)
 
         # Display title in the center
         with col2:
-            st.header("Windows LLM Reviews Summarizer")
+            st.markdown("<div style='text-align: center'>", unsafe_allow_html=True)
+            st.markdown("""
+                <h1 style='font-size:35px;'>Windows Devices - Consumer Insights Generator</h1>
+                """, unsafe_allow_html=True)
+            st.markdown("</div>", unsafe_allow_html=True)
 
-        # Display logo on the right
+# Display logo on the right
         with col3:
-            st.image("copilot_logo.svg", width=50)  # Align the logo to the right
+            st.markdown("<div style='text-align: center'>", unsafe_allow_html=True)
+            st.image("Windows_Device_Image.png",use_column_width = "auto")  # Adjust width as needed
+            st.markdown("</div>", unsafe_allow_html=True)
       
         # User input section
         user_input = st.text_input("Enter your text:", placeholder="What would you like to process?")
@@ -462,7 +470,6 @@ def main():
         err = f"An error occurred while calling the final function: {e}"
         print(err)
         return err
-
 
 if __name__ == "__main__":
     main()
