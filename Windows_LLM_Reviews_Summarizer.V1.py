@@ -30,8 +30,8 @@ import pandasql as ps
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 
 #Initializing API Keys to use LLM
-os.environ["AZURE_OPENAI_API_KEY"] = "b71d4af1ea184bfb9444b448f4f5412a"
-os.environ["AZURE_OPENAI_ENDPOINT"] = "https://fordmustang.openai.azure.com/"
+AZURE_OPENAI_API_KEY = os.environ.get("AZURE_OPENAI_API_KEY")
+AZURE_OPENAI_ENDPOINT = os.environ.get("AZURE_OPENAI_ENDPOINT")
 
 
 #Reading the dataset
